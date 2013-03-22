@@ -13,17 +13,17 @@
         <form action="adiciona">
             <fieldset>
                 <legend>Formulário de cadastro</legend>
-                <table>
+                <table class="cadastro"  >
                     <tr>
-                        <td>
-                            <label for="nome">Nome:</label>
+                        <td class="cadastro">
+                            <label class="cadastro" for="nome">Nome:</label>
                         </td>
                         <td>
                             <input id="nome" type="text" name="cliente.nome"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="nomeconjugue">Nome do Cônjugue:</label>
                         </td>
                         <td>
@@ -31,7 +31,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="produtointeresse">Produto de interesse:</label>
                         </td>
                         <td>
@@ -39,7 +39,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="origem">Origem do cadastro:</label>
                         </td>
                         <td>
@@ -47,7 +47,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="descricao">Tipo:</label>
                         </td>
                         <td>
@@ -55,7 +55,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="preco">Tipo Contato:</label>
                         </td>
                         <td>
@@ -63,7 +63,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="preco">Descrição Contato:</label>
                         </td>
                         <td>
@@ -71,24 +71,24 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="enderecoResidencial">Endereço Residencial</label>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="ruares">Rua Residencial:</label>
                         </td>
                         <td>
                             <input id="ruares" type="text" name="cliente.ruares"></input>
                         </td>                    
-                        <td>
+                        <td class="cadastro">
                             <label for="numres">Número Residencial:</label>
                         </td>
                         <td>
                             <input id="numres" type="text" name="cliente.numres"></input>
                         </td>                   
-                        <td>
+                        <td class="cadastro">
                             <label for="bairrores">Bairro Residencial:</label>
                         </td>
                         <td>
@@ -96,24 +96,24 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="enderecoComercial">Endereço Comercial</label>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="cadastro">
                             <label for="ruacom">Rua Comercial:</label>
                         </td>
                         <td>
                             <input id="ruacom" type="text" name="cliente.ruacom"></input>
                         </td>
-                        <td>
+                        <td class="cadastro">
                             <label for="numcom">Número Comercial:</label>
                         </td>
                         <td>
                             <input id="numcom" type="text" name="cliente.numcom"></input>
                         </td>
-                        <td>
+                        <td class="cadastro">
                             <label for="bairrocom">Bairro Comercial:</label>
                         </td>
                         <td>

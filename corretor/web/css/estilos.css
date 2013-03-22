@@ -1,0 +1,23 @@
+/* 
+    Document   : estilos
+    Created on : 22/03/2013, 17:26:37
+    Author     : rcruzsil
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+html {
+    background-color: #6699ff;
+}
+
+table.cadastro {
+   background-color: lightgray; 
+   color: white;
+}
+td.cadastro {
+    background-color: darkslategrey; 
+}

@@ -6,14 +6,20 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html style=" background-color: blue ">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Agenda de Clientes</title>
     </head>
-    <body>
-        <a href="/corretor/home/home">Home</a>
-        <a href="/corretor/cliente/formulario">Cliente</a>
-        
-    </body>
-</html>
+    <body >
+<div id="menu">
+
+    <a href="/corretor/home/home">Home</a>
+
+
+    <a href="/corretor/cliente/formulario">Cliente</a>
+
+    <a href="/corretor/cliente/lista">Lista de Clientes</a>
+
+
+</div>

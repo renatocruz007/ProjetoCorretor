@@ -6,6 +6,7 @@ package dao;
 
 import br.com.caelum.vraptor.ioc.Component;
 import entities.Cliente;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -42,7 +43,7 @@ public class ClienteDAO {
 
     }
 
-    public Long retornaId(String nome) {
+    public Integer retornaId(String nome) {
         Cliente cliente = new Cliente();
         try {
             Query query = em.createQuery("select c from Cliente c where c.nome = :nome",

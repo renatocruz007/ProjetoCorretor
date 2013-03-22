@@ -7,13 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
+
+        <c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
+        <h1>Lista de Clientes</h1>
         <table>
             <thead>
                 <tr>
@@ -23,8 +19,8 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${clienteList}" var="cliente">
-                    <tr>
+                <c:forEach items="${clienteList}" var="cliente" varStatus="id">
+                    <tr bgcolor="#${id.count % 2 == 0 ? 'aaee88' : 'ffffff' }">
                         <td>${cliente.nome }</td>
                         <td>${cliente.nomeconjugue }</td>
                         <td>${cliente.origem }</td>

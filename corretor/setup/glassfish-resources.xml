@@ -13,4 +13,5 @@
     <jdbc-resource enabled="true" jndi-name="corretor" object-type="user" pool-name="post-gre-sql_postgres_postgresPool"/>
     <jdbc-resource enabled="true" jndi-name="corretorPU" object-type="user" pool-name="post-gre-sql_postgres_postgresPool"/>
     <jdbc-resource enabled="true" jndi-name="lala" object-type="user" pool-name="post-gre-sql_postgres_postgresPool"/>
+    <jdbc-resource enabled="true" jndi-name="default" object-type="user" pool-name="post-gre-sql_postgres_postgresPool"/>
 </resources>

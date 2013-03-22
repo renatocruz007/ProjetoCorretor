@@ -5,10 +5,10 @@
 package controller;
 
 import br.com.caelum.vraptor.Resource;
-import dao.ClienteContatoDAO;
+import dao.ClientecontatoDAO;
 import dao.ClienteDAO;
 import entities.Cliente;
-import entities.ClienteContato;
+import entities.Clientecontato;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,24 +19,24 @@ import java.util.List;
  @Resource
 public class ClienteController {
     private ClienteDAO dao;
-    private ClienteContatoDAO daoContato;
+    private ClientecontatoDAO daoContato;
 
     public ClienteController() {
         this.dao = new ClienteDAO();
-        this.daoContato = new ClienteContatoDAO();
+        this.daoContato = new ClientecontatoDAO();
     }
     
     public List<Cliente> lista() {
         return dao.listaClientes();
     }
-    public void adiciona(Cliente cliente, ClienteContato clienteContato) {
-        List<ClienteContato> listaClienteContatos = new ArrayList<ClienteContato>();
+    public void adiciona(Cliente cliente, Clientecontato clienteContato) {
+        List<Clientecontato> listaClienteContatos = new ArrayList<Clientecontato>();
         listaClienteContatos.add(clienteContato);
-        cliente.setClienteContatoList(listaClienteContatos);
+        cliente.setClientecontatoList(listaClienteContatos);
         dao.adiciona(cliente);
       //  Long idCliente = dao.retornaId(cliente.getNome());
       //  cliente.setId(cliente.getId());
-        clienteContato.setIdCliente(cliente);
+        clienteContato.setIdclienteId(cliente);
         daoContato.atualiza(clienteContato);
     }
     

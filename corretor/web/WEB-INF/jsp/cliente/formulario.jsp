@@ -7,31 +7,120 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
+
         <c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
-        <h1></h1>
+        <h1>Cadastro de Cliente</h1>
         <form action="adiciona">
             <fieldset>
-                <legend>Adicionar Cliente</legend>
-                <input id="id" type="text" name="cliente.id"/>
-                
-                <label for="nome">Nome:</label>
-                <input id="nome" type="text" name="cliente.nome"/>
-                
-                <label for="descricao">Tipo:</label>
-                <input id="descricao" type="text" name="clienteContato.siglaTipo"/>
-                
-                <label for="preco">Tipo Contato:</label>
-                <input id="preco" type="text" name="clienteContato.siglaTipocontato"/>
-                
-                <label for="preco">Desc Contato:</label>
-                <textarea id="descricao" name="clienteContato.descContato"></textarea>
-                
+                <legend>Formulário de cadastro</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="nome">Nome:</label>
+                        </td>
+                        <td>
+                            <input id="nome" type="text" name="cliente.nome"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="nomeconjugue">Nome do Cônjugue:</label>
+                        </td>
+                        <td>
+                            <input id="nomeconjugue" type="text" name="cliente.nomeconjugue"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="produtointeresse">Produto de interesse:</label>
+                        </td>
+                        <td>
+                            <input id="produtointeresse" type="text" name="cliente.produtointeresse"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="origem">Origem do cadastro:</label>
+                        </td>
+                        <td>
+                            <input id="origem" type="text" name="cliente.origem"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="descricao">Tipo:</label>
+                        </td>
+                        <td>
+                            <input id="descricao" type="text" name="clienteContato.siglatipo"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="preco">Tipo Contato:</label>
+                        </td>
+                        <td>
+                            <input id="preco" type="text" name="clienteContato.siglatipocontato"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="preco">Descrição Contato:</label>
+                        </td>
+                        <td>
+                            <input id="descricao" type="text" name="clienteContato.desccontato"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="enderecoResidencial">Endereço Residencial</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="ruares">Rua Residencial:</label>
+                        </td>
+                        <td>
+                            <input id="ruares" type="text" name="cliente.ruares"></input>
+                        </td>                    
+                        <td>
+                            <label for="numres">Número Residencial:</label>
+                        </td>
+                        <td>
+                            <input id="numres" type="text" name="cliente.numres"></input>
+                        </td>                   
+                        <td>
+                            <label for="bairrores">Bairro Residencial:</label>
+                        </td>
+                        <td>
+                            <input id="bairrores" type="text" name="cliente.bairrores"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="enderecoComercial">Endereço Comercial</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="ruacom">Rua Comercial:</label>
+                        </td>
+                        <td>
+                            <input id="ruacom" type="text" name="cliente.ruacom"></input>
+                        </td>
+                        <td>
+                            <label for="numcom">Número Comercial:</label>
+                        </td>
+                        <td>
+                            <input id="numcom" type="text" name="cliente.numcom"></input>
+                        </td>
+                        <td>
+                            <label for="bairrocom">Bairro Comercial:</label>
+                        </td>
+                        <td>
+                            <input id="bairrocom" type="text" name="cliente.bairrocom"></input>
+                        </td>
+                    </tr>
+                </table>
                 <button type="submit">Enviar</button>
             </fieldset>
         </form>

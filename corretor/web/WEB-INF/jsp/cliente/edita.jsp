@@ -46,7 +46,8 @@
                             <label for="origem">Origem do cadastro:</label>
                         </td>
                         <td>
-                            <input id="origem" type="text" name="cliente.origem"/>
+                            <input id="origem" type="text" name="cliente.origem"
+                                   value="cliente.origem"/>
                         </td>
                     </tr>
                     <tr>
@@ -54,7 +55,8 @@
                             <label for="descricao">Tipo:</label>
                         </td>
                         <td>
-                            <input id="descricao" type="text" name="clienteContato.siglatipo"/>
+                            <input id="descricao" type="text" name="clienteContato.siglatipo"
+                                   value="clienteContato.siglatipo"/>
                         </td>
                     </tr>
                     <tr>
@@ -62,7 +64,8 @@
                             <label for="preco">Tipo Contato:</label>
                         </td>
                         <td>
-                            <input id="preco" type="text" name="clienteContato.siglatipocontato"/>
+                            <input id="preco" type="text" name="clienteContato.siglatipocontato"
+                                   value="clienteContato.siglatipocontato"/>
                         </td>
                     </tr>
                     <tr>
@@ -70,7 +73,8 @@
                             <label for="preco">Descrição Contato:</label>
                         </td>
                         <td>
-                            <input id="descricao" type="text" name="clienteContato.desccontato"></input>
+                            <input id="descricao" type="text" name="clienteContato.desccontato"
+                                   value="clienteContato.desccontato"/>
                         </td>
                     </tr>
                     <tr>
@@ -83,13 +87,15 @@
                             <label for="ruares">Rua Residencial:</label>
                         </td>
                         <td>
-                            <input id="ruares" type="text" name="cliente.ruares"></input>
+                            <input id="ruares" type="text" name="cliente.ruares"
+                                   value="cliente.ruares"/>
                         </td>                    
                         <td class="cadastro">
                             <label for="numres">Número Residencial:</label>
                         </td>
                         <td>
-                            <input id="numres" type="text" name="cliente.numres"></input>
+                            <input id="numres" type="text" name="cliente.numres"
+                                   value="cliente.numres"/>
                         </td>                   
                         <td class="cadastro">
                             <label for="bairrores">Bairro Residencial:</label>

@@ -1,25 +1,26 @@
 <%-- 
-    Document   : formulario
-    Created on : 28/08/2012, 01:05:36
-    Author     : Alexey
+    Document   : formularioContato
+    Created on : 23/03/2013, 13:07:44
+    Author     : rcruzsil
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
-        <c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
-        <h1>Cadastro de Cliente</h1>
-        <form action="<c:url value="/cliente"/>" method="POST">
-            <fieldset>
-                <legend>Formulário de cadastro</legend>
-                <table class="cadastro"  >
+<c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
+<h1>Hello World!</h1>
+<form action="<c:url value="/cliente/${cliente.id }"/>" method="POST">
+    <fieldset>
+        <legend>Editar Produto</legend>
+        <table class="cadastro"  >
                     <tr>
                         <td class="cadastro">
                             <label class="cadastro" for="nome">Nome:</label>
                         </td>
                         <td>
-                            <input id="nome" type="text" name="cliente.nome"/>
+                            <input id="nome" type="text" name="cliente.nome"
+                                   value="cliente.come"/>
                         </td>
                     </tr>
                     <tr>
@@ -27,7 +28,8 @@
                             <label for="nomeconjugue">Nome do Cônjugue:</label>
                         </td>
                         <td>
-                            <input id="nomeconjugue" type="text" name="cliente.nomeconjugue"/>
+                            <input id="nomeconjugue" type="text" name="cliente.nomeconjugue"
+                                   value="cliente.nomeconjugue"/>
                         </td>
                     </tr>
                     <tr>
@@ -35,7 +37,8 @@
                             <label for="produtointeresse">Produto de interesse:</label>
                         </td>
                         <td>
-                            <input id="produtointeresse" type="text" name="cliente.produtointeresse"/>
+                            <input id="produtointeresse" type="text" name="cliente.produtointeresse"
+                                   value="cliente.produtointeresse"/>
                         </td>
                     </tr>
                     <tr>
@@ -121,8 +124,11 @@
                         </td>
                     </tr>
                 </table>
-                <button type="submit">Enviar</button>
-            </fieldset>
-        </form>
-    </body>
+        <button type="submit" name="_method" value="PUT">
+            Enviar
+        </button>
+    </fieldset>
+</form>
+
+</body>
 </html>

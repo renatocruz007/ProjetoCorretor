@@ -4,6 +4,9 @@
  */
 package controller;
 
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import dao.ClientecontatoDAO;
 import dao.ClienteDAO;
@@ -29,6 +32,7 @@ public class ClienteController {
     public List<Cliente> lista() {
         return dao.listaClientes();
     }
+    @Post("/corretor/cliente")
     public void adiciona(Cliente cliente, Clientecontato clienteContato) {
         List<Clientecontato> listaClienteContatos = new ArrayList<Clientecontato>();
         listaClienteContatos.add(clienteContato);
@@ -40,6 +44,11 @@ public class ClienteController {
         daoContato.atualiza(clienteContato);
     }
     
+    @Get("/cliente/novo")
     public void formulario () {
+    }
+    @Get("/cliente/{id}")
+    public Cliente edita (Integer id) {
+        return dao.edita(id);
     }
 }

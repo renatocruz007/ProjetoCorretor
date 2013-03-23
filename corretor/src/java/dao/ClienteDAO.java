@@ -55,6 +55,19 @@ public class ClienteDAO {
         }
         return cliente.getId();
     }
+    
+    public Cliente edita (Integer id) {
+        Cliente cliente = new Cliente();
+        try {
+            Query query = em.createQuery("select c from Cliente c where c.id = :id",
+                    Cliente.class);
+            query.setParameter("id", id);
+            cliente = (Cliente) query.getSingleResult();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return cliente;
+    }
 
     public void atualiza(Cliente cliente) {
         try {

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,7 +19,7 @@
     <a href="/corretor/home/home">Home</a>
 
 
-    <a href="/corretor/cliente/formulario">Cliente</a>
+    <a href="<c:url value="/cliente/novo"/>">Cliente</a>
 
     <a href="/corretor/cliente/lista">Lista de Clientes</a>
 

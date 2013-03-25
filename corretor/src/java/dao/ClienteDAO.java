@@ -42,6 +42,21 @@ public class ClienteDAO {
         }
 
     }
+    
+    public void remove(Cliente cliente) {
+        try {
+            em.getTransaction().begin();
+            em.remove(cliente);
+            // long aux = em.createQuery("select c.id from cliente c ").getFirstResult();
+
+            em.getTransaction().commit();
+            em.close();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+
+        }
+
+    }
 
     public Integer retornaId(String nome) {
         Cliente cliente = new Cliente();

@@ -53,7 +53,7 @@ public class Clientecontato implements Serializable {
     @Column(name = "id")
     private Integer id;
     @JoinColumn(name = "idcliente_id", referencedColumnName = "id")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cliente idclienteId;
 
     public Clientecontato() {

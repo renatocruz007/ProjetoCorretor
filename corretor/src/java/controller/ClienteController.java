@@ -4,6 +4,7 @@
  */
 package controller;
 
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
@@ -29,19 +30,28 @@ public class ClienteController {
         this.daoContato = new ClientecontatoDAO();
     }
     
+    @Get("/cliente")
     public List<Cliente> lista() {
         return dao.listaClientes();
     }
-    @Post("/corretor/cliente")
+    
+    @Delete("/cliente/{id}")
+    public void remove (Integer id) {
+        Cliente cliente = new Cliente();
+        cliente.setId(id);
+        dao.remove(cliente);
+    }
+    
+    @Post("/cliente")
     public void adiciona(Cliente cliente, Clientecontato clienteContato) {
-        List<Clientecontato> listaClienteContatos = new ArrayList<Clientecontato>();
-        listaClienteContatos.add(clienteContato);
-        cliente.setClientecontatoList(listaClienteContatos);
+       // List<Clientecontato> listaClienteContatos = new ArrayList<Clientecontato>();
+       // listaClienteContatos.add(clienteContato);
+       // cliente.setClientecontatoList(listaClienteContatos);
         dao.adiciona(cliente);
       //  Long idCliente = dao.retornaId(cliente.getNome());
       //  cliente.setId(cliente.getId());
         clienteContato.setIdclienteId(cliente);
-        daoContato.atualiza(clienteContato);
+        daoContato.adiciona(clienteContato);
     }
     
     @Get("/cliente/novo")

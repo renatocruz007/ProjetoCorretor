@@ -79,7 +79,7 @@ public class Cliente implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @OneToMany(mappedBy = "idclienteId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "idclienteId", fetch = FetchType.LAZY)
     private List<Clientecontato> clientecontatoList;
 
     public Cliente() {

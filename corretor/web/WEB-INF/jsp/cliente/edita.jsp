@@ -20,7 +20,7 @@
                         </td>
                         <td>
                             <input id="nome" type="text" name="cliente.nome"
-                                   value="cliente.come"/>
+                                   value="${cliente.nome}"/>
                         </td>
                     </tr>
                     <tr>
@@ -29,7 +29,7 @@
                         </td>
                         <td>
                             <input id="nomeconjugue" type="text" name="cliente.nomeconjugue"
-                                   value="cliente.nomeconjugue"/>
+                                   value="${cliente.nomeconjugue}"/>
                         </td>
                     </tr>
                     <tr>
@@ -38,7 +38,7 @@
                         </td>
                         <td>
                             <input id="produtointeresse" type="text" name="cliente.produtointeresse"
-                                   value="cliente.produtointeresse"/>
+                                   value="${cliente.produtointeresse}"/>
                         </td>
                     </tr>
                     <tr>
@@ -47,7 +47,7 @@
                         </td>
                         <td>
                             <input id="origem" type="text" name="cliente.origem"
-                                   value="cliente.origem"/>
+                                   value="${cliente.origem}"/>
                         </td>
                     </tr>
                     <tr>
@@ -56,7 +56,7 @@
                         </td>
                         <td>
                             <input id="descricao" type="text" name="clienteContato.siglatipo"
-                                   value="clienteContato.siglatipo"/>
+                                   value="${clienteContato.siglatipo}"/>
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +65,7 @@
                         </td>
                         <td>
                             <input id="preco" type="text" name="clienteContato.siglatipocontato"
-                                   value="clienteContato.siglatipocontato"/>
+                                   value="${clienteContato.siglatipocontato}"/>
                         </td>
                     </tr>
                     <tr>
@@ -74,7 +74,7 @@
                         </td>
                         <td>
                             <input id="descricao" type="text" name="clienteContato.desccontato"
-                                   value="clienteContato.desccontato"/>
+                                   value="${clienteContato.desccontato}"/>
                         </td>
                     </tr>
                     <tr>
@@ -88,20 +88,21 @@
                         </td>
                         <td>
                             <input id="ruares" type="text" name="cliente.ruares"
-                                   value="cliente.ruares"/>
+                                   value="${cliente.ruares}"/>
                         </td>                    
                         <td class="cadastro">
                             <label for="numres">Número Residencial:</label>
                         </td>
                         <td>
                             <input id="numres" type="text" name="cliente.numres"
-                                   value="cliente.numres"/>
+                                   value="${cliente.numres}"/>
                         </td>                   
                         <td class="cadastro">
                             <label for="bairrores">Bairro Residencial:</label>
                         </td>
                         <td>
-                            <input id="bairrores" type="text" name="cliente.bairrores"></input>
+                            <input id="bairrores" type="text" name="cliente.bairrores"
+                                   value="${cliente.bairrores}"/>
                         </td>
                     </tr>
                     <tr>
@@ -114,19 +115,22 @@
                             <label for="ruacom">Rua Comercial:</label>
                         </td>
                         <td>
-                            <input id="ruacom" type="text" name="cliente.ruacom"></input>
+                            <input id="ruacom" type="text" name="cliente.ruacom"
+                                   value="${cliente.ruacom}"/>
                         </td>
                         <td class="cadastro">
                             <label for="numcom">Número Comercial:</label>
                         </td>
                         <td>
-                            <input id="numcom" type="text" name="cliente.numcom"></input>
+                            <input id="numcom" type="text" name="cliente.numcom"
+                                   value="${cliente.numcom}"/>
                         </td>
                         <td class="cadastro">
                             <label for="bairrocom">Bairro Comercial:</label>
                         </td>
                         <td>
-                            <input id="bairrocom" type="text" name="cliente.bairrocom"></input>
+                            <input id="bairrocom" type="text" name="cliente.bairrocom"
+                                   value="${cliente.bairrocom}"/>
                         </td>
                     </tr>
                 </table>

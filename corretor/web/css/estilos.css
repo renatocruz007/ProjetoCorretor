@@ -15,9 +15,17 @@ html {
 }
 
 table.cadastro {
-   background-color: lightgray; 
-   color: white;
+    background-color: lightgray; 
+    color: white;
 }
 td.cadastro {
     background-color: darkslategrey; 
+}
+
+.link{
+    text-decoration: underline;
+    border: none;
+    background: none;
+    color: blue;
+    cursor: pointer;
 }

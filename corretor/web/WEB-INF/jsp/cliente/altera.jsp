@@ -1,6 +1,6 @@
 <%-- 
-    Document   : adiciona
-    Created on : 23/03/2013, 17:59:43
+    Document   : altera
+    Created on : 27/03/2013, 16:44:16
     Author     : rcruzsil
 --%>
 
@@ -9,6 +9,6 @@
 <!DOCTYPE html>
 
 <c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
-        <h1>Contato adicionado com sucesso!</h1>
+        <h1>Cliente alterado com sucesso!</h1>
     </body>
 </html>

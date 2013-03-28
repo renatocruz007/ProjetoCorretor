@@ -25,18 +25,18 @@
                 <td>${contato.siglatipo}</td>
                 <td>${contato.siglatipocontato }</td>
                 <td>${contato.desccontato }</td>
-                <td><a href="<c:url value="/cliente/${cliente.id}"/>">
+                <td><a href="<c:url value="/contato/edita/${contato.id}"/>">
                         Editar
                     </a></td>
                 <td>
-                    <form action="<c:url value="/cliente/${cliente.id}"/>"
-                          method="POST">
-                        <button class="link" name="_method" value="DELETE">
-                            Remover
-                        </button>
-                    </form>
+                        <form action="<c:url value="/contato/${contato.id}"/>"
+                              method="POST">
+                            <button class="link" name="_method" value="DELETE">
+                                Remover
+                            </button>
+                        </form>
                 </td>
-                <td><a href="<c:url value="/contato/${cliente.id}"/>">
+                <td><a href="<c:url value="/contato/${contato.idclienteId.id}"/>">
                         Adicionar contato
                     </a></td>
             </tr>

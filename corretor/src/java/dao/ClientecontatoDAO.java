@@ -43,10 +43,40 @@ public class ClientecontatoDAO {
         }
     }
     
+    public void remove(Integer id) throws Exception {
+        try {
+           em.getTransaction().begin();
+            Query query = em.createQuery("delete from Clientecontato c "
+                    + " where c.id = :id");
+            query.setParameter("id", id);
+            query.executeUpdate();
+
+            em.getTransaction().commit();
+            em.close();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            throw new Exception(e.getMessage());
+        }
+
+    }
+    
+    public Clientecontato findById (Integer id) throws Exception{
+        Clientecontato clienteContato = null;
+        try {
+            Query query = em.createQuery("select c from Clientecontato c where c.id = :id", Clientecontato.class);
+            query.setParameter("id", id);
+            clienteContato =  (Clientecontato) query.getSingleResult();
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            throw new Exception(e.getMessage());
+        }
+        return  clienteContato;
+    }
+    
     public void atualiza(Clientecontato clienteContato) {
         try {
              em.getTransaction().begin();
-            em.merge(clienteContato);
+             em.merge(clienteContato);
              em.getTransaction().commit();
              em.close();
         } catch (Exception e) {

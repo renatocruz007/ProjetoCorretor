@@ -1,6 +1,6 @@
 <%-- 
-    Document   : adiciona
-    Created on : 23/03/2013, 17:59:43
+    Document   : remove
+    Created on : 25/03/2013, 15:15:06
     Author     : rcruzsil
 --%>
 
@@ -9,6 +9,9 @@
 <!DOCTYPE html>
 
 <c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
-        <h1>Contato adicionado com sucesso!</h1>
-    </body>
+<h1>Hello World!</h1>
+
+    <h2>${string}</h2>
+
+</body>
 </html>

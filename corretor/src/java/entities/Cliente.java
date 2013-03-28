@@ -30,19 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "cliente")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
-    @NamedQuery(name = "Cliente.findByBairrocom", query = "SELECT c FROM Cliente c WHERE c.bairrocom = :bairrocom"),
-    @NamedQuery(name = "Cliente.findByBairrores", query = "SELECT c FROM Cliente c WHERE c.bairrores = :bairrores"),
-    @NamedQuery(name = "Cliente.findByNome", query = "SELECT c FROM Cliente c WHERE c.nome = :nome"),
-    @NamedQuery(name = "Cliente.findByNomeconjugue", query = "SELECT c FROM Cliente c WHERE c.nomeconjugue = :nomeconjugue"),
-    @NamedQuery(name = "Cliente.findByNumcom", query = "SELECT c FROM Cliente c WHERE c.numcom = :numcom"),
-    @NamedQuery(name = "Cliente.findByNumres", query = "SELECT c FROM Cliente c WHERE c.numres = :numres"),
-    @NamedQuery(name = "Cliente.findByOrigem", query = "SELECT c FROM Cliente c WHERE c.origem = :origem"),
-    @NamedQuery(name = "Cliente.findByProdutointeresse", query = "SELECT c FROM Cliente c WHERE c.produtointeresse = :produtointeresse"),
-    @NamedQuery(name = "Cliente.findByRuacom", query = "SELECT c FROM Cliente c WHERE c.ruacom = :ruacom"),
-    @NamedQuery(name = "Cliente.findByRuares", query = "SELECT c FROM Cliente c WHERE c.ruares = :ruares"),
-    @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id")})
+
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Size(max = 255)

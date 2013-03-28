@@ -28,7 +28,7 @@
                         Editar
                     </a></td>
                 <td>
-                    <form action="<c:url value="/cliente/${cliente.id}"/>"
+                    <form action="<c:url value="/cliente/remove/${cliente.id}"/>"
                           method="POST">
                         <button class="link" name="_method" value="DELETE">
                             Remover

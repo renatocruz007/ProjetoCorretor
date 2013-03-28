@@ -29,12 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "clientecontato")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Clientecontato.findAll", query = "SELECT c FROM Clientecontato c"),
-    @NamedQuery(name = "Clientecontato.findByDesccontato", query = "SELECT c FROM Clientecontato c WHERE c.desccontato = :desccontato"),
-    @NamedQuery(name = "Clientecontato.findBySiglatipo", query = "SELECT c FROM Clientecontato c WHERE c.siglatipo = :siglatipo"),
-    @NamedQuery(name = "Clientecontato.findBySiglatipocontato", query = "SELECT c FROM Clientecontato c WHERE c.siglatipocontato = :siglatipocontato"),
-    @NamedQuery(name = "Clientecontato.findById", query = "SELECT c FROM Clientecontato c WHERE c.id = :id")})
+
 public class Clientecontato implements Serializable {
     private static final long serialVersionUID = 1L;
     @Size(max = 255)
@@ -53,7 +48,7 @@ public class Clientecontato implements Serializable {
     @Column(name = "id")
     private Integer id;
     @JoinColumn(name = "idcliente_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Cliente idclienteId;
 
     public Clientecontato() {

@@ -6,6 +6,7 @@ package dao;
 
 import br.com.caelum.vraptor.ioc.Component;
 import entities.Cliente;
+import entities.Clientecontato;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,6 @@ import javax.persistence.Query;
  */
 //@Stateless
 //@LocalBean
-
 public class ClienteDAO {
 
     //@PersistenceContext(name = "corretorPU")    
@@ -42,12 +42,14 @@ public class ClienteDAO {
         }
 
     }
-    
-    public void remove(Cliente cliente) {
+
+    public void remove(Integer id) {
         try {
             em.getTransaction().begin();
-            em.remove(cliente);
-            // long aux = em.createQuery("select c.id from cliente c ").getFirstResult();
+            Query query = em.createQuery("delete from Cliente c "
+                    + " where c.id = :id");
+            query.setParameter("id", id);
+            query.executeUpdate();
 
             em.getTransaction().commit();
             em.close();
@@ -70,25 +72,26 @@ public class ClienteDAO {
         }
         return cliente.getId();
     }
-    
-    public Cliente edita (Integer id) {
+
+    public Cliente findById(Integer id) throws Exception {
         Cliente cliente = new Cliente();
         try {
-            Query query = em.createQuery("select c from Cliente c where c.id = :id",
-                    Cliente.class);
+            Query query = em.createQuery("select c from Cliente c where c.id = :id");
             query.setParameter("id", id);
             cliente = (Cliente) query.getSingleResult();
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            throw new Exception(e.getMessage());
         }
         return cliente;
     }
 
     public void atualiza(Cliente cliente) {
         try {
-            // em.getTransaction().begin();
-            em.refresh(cliente);
-            // em.getTransaction().commit();
+            em.getTransaction().begin();
+            em.merge(cliente);
+            em.getTransaction().commit();
+            em.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
 

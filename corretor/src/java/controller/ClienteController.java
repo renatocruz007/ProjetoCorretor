@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
 import dao.ClientecontatoDAO;
 import dao.ClienteDAO;
 import entities.Cliente;
@@ -26,25 +27,32 @@ public class ClienteController {
 
     private ClienteDAO dao;
     private ClientecontatoDAO daoContato;
+    private final Result result;
 
-    public ClienteController() {
+    public ClienteController(Result result) {
         this.dao = new ClienteDAO();
         this.daoContato = new ClientecontatoDAO();
+        this.result = result;
     }
 
     @Get("/cliente/lista")
     public List<Cliente> lista() {
-        return dao.listaClientes();
+        try {
+            return dao.listaClientes();
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
     }
 
     @Delete("/cliente/remove/{id}")
     public String remove(Integer id) {
         try {
-            
+
             dao.remove(id);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
-            return"Um erro ocorreu";
+            return "Um erro ocorreu";
         }
         return "Cliente deletado com sucesso!";
     }
@@ -83,4 +91,15 @@ public class ClienteController {
         } catch (Exception ex) {
         }
     }
+
+    public List<Cliente> busca(String nome) {
+        try {
+            result.include("nome", nome);
+            return dao.busca(nome);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
+    }
+
 }

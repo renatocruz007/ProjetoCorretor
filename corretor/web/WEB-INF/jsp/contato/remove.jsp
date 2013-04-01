@@ -8,10 +8,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
-<c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
+<c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
 <h1>Hello World!</h1>
 
-    <h2>${string}</h2>
+<h2>${string}</h2>
 
-</body>
-</html>
+<c:import url="http://localhost:8080/corretor/rodape.jsp" />

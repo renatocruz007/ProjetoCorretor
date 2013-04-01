@@ -8,7 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
-<c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
+<c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
 <h1>Hello World!</h1>
 <c:if test="${empty cliente}">
     <h2>Um erro ocorreu</h2>
@@ -117,5 +117,4 @@
         </fieldset>
     </form>
 </c:if>
-</body>
-</html>
+<c:import url="http://localhost:8080/corretor/rodape.jsp" />

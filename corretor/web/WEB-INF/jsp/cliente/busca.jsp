@@ -1,7 +1,7 @@
 <%-- 
-    Document   : lista
-    Created on : 28/08/2012, 00:43:15
-    Author     : Alexey
+    Document   : busca
+    Created on : 01/04/2013, 16:06:27
+    Author     : rcruzsil
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,9 @@
 <!DOCTYPE html>
 
 <c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
-<h1>Lista de Clientes</h1>
+<h3>Resultados da busca pelo nome <b>"${nome }"</b></h3>
 <c:if test="${empty clienteList}">
-    A agenda de clientes está vazia!
+    Não há clientes com esse nome na agenda!
 </c:if>
 <c:if test="${not empty clienteList}">
     <table>

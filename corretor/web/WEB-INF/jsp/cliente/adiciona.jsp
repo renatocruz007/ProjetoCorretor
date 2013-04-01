@@ -13,7 +13,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
+        <c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
         <h1>Funcionou caralho!</h1>
-    </body>
-</html>
+        <c:import url="http://localhost:8080/corretor/rodape.jsp" />

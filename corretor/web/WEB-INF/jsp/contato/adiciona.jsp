@@ -8,7 +8,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
-<c:import url="/WEB-INF/jsp/home/cabecalho.jsp" />
-        <h1>Contato adicionado com sucesso!</h1>
-    </body>
-</html>
+<c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
+<h1>Contato adicionado com sucesso!</h1>
+<c:import url="http://localhost:8080/corretor/rodape.jsp" />

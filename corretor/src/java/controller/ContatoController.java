@@ -65,7 +65,13 @@ public class ContatoController {
 
     @Get("/contato/lista/{id}")
     public List<Clientecontato> lista(Integer id) {
+        try {
         return daoContato.listaContatos(id);
+        }
+        catch(Exception ex) {
+            System.err.println(ex.getMessage());
+            return null;
+        }
     }
     @Get("/contato/edita/{id}")
     public Clientecontato edita (Integer id) {

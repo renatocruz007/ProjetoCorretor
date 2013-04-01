@@ -108,4 +108,19 @@ public class ClienteDAO {
         }
         return null;
     }
+
+    public List<Cliente> busca(String nome) {
+        
+        try {
+            List<Cliente> listaClientes = new ArrayList<Cliente>();
+            Query query = em.createQuery("select c from Cliente c where "
+                    + " c.nome like :nome");
+            query.setParameter("nome", "%"+ nome +"%");
+            listaClientes = query.getResultList();
+            return listaClientes;
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
 }

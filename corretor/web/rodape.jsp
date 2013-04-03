@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-  Copyright 2010 - Todos os direitos reservados
-    </body>
+<div id="rodape">
+    Copyright 2013 - Todos os direitos reservados
+</div>
+</body>
 </html>

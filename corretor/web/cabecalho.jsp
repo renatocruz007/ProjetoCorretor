@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
     <head>
         <link rel="stylesheet" type="text/css" href="http://localhost:8080/corretor/css/estilos.css" />
         <script type="text/javascript" src="http://localhost:8080/corretor/js/jquery-1.9.1.min.js"></script>
@@ -29,7 +29,7 @@
                     </ul>
                     <div class="clear"></div>
                 </li>
-                <li><form action="<c:url value="/cliente/busca"/>">
+                <li id="buscali" ><form action="<c:url value="/cliente/busca"/>">
                         <input id="busca" name="nome"/>
                     </form>
                     <script type="text/javascript">

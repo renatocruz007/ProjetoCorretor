@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
 import dao.ClienteDAO;
 import dao.ClientecontatoDAO;
 import entities.Cliente;
@@ -27,16 +28,25 @@ public class ContatoController {
 
     private ClienteDAO dao;
     private ClientecontatoDAO daoContato;
+    private final Result result;
 
-    public ContatoController() {
+    public ContatoController(Result result) {
         this.dao = new ClienteDAO();
         this.daoContato = new ClientecontatoDAO();
+        this.result = result;
     }
 
     @Post("/contato")
-    public void adiciona(Cliente cliente, Clientecontato clienteContato) {
-        clienteContato.setIdclienteId(cliente);
-        daoContato.adiciona(clienteContato);
+    public String adiciona(Cliente cliente, Clientecontato clienteContato) {
+        try {
+            clienteContato.setIdclienteId(cliente);
+            
+            daoContato.adiciona(clienteContato);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return "Um erro ocorreu";
+        }
+        return "Contato adicionado com sucesso!";
     }
 
     @Delete("/contato/{id}")
@@ -45,7 +55,7 @@ public class ContatoController {
         try {
             daoContato.remove(id);
         } catch (Exception e) {
-            teste = "Um erro ocorreu.";
+            teste = "Um erro ocorreu";
             return teste;
         }
         teste = "Contato deletado com sucesso!";
@@ -66,31 +76,33 @@ public class ContatoController {
     @Get("/contato/lista/{id}")
     public List<Clientecontato> lista(Integer id) {
         try {
-        return daoContato.listaContatos(id);
-        }
-        catch(Exception ex) {
+            return daoContato.listaContatos(id);
+        } catch (Exception ex) {
             System.err.println(ex.getMessage());
+            result.include("erro", "Um erro ocorreu");
             return null;
         }
     }
+
     @Get("/contato/edita/{id}")
-    public Clientecontato edita (Integer id) {
+    public Clientecontato edita(Integer id) {
         Clientecontato contato = null;
         try {
-        contato = daoContato.findById(id);
-        }
-        catch(Exception e) {
+            contato = daoContato.findById(id);
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
         return contato;
-        }
-    @Put("/contato/{clientecontato.id}")
-    public void altera (Clientecontato clientecontato) {
+    }
+
+    @Put("/contato/{clienteContato.id}")
+    public String altera(Clientecontato clienteContato) {
         try {
-            daoContato.atualiza(clientecontato);
+            daoContato.atualiza(clienteContato);
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return "Um erro ocorreu";
         }
-        catch (Exception ex) {
-            
-        }
+        return "Contato editado com sucesso!";
     }
 }

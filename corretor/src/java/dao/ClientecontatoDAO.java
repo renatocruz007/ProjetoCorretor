@@ -27,7 +27,7 @@ public class ClientecontatoDAO {
         this.em = new JPAUtil().getEntityManager();
     }
     
-    public void adiciona(Clientecontato clienteContato) {
+    public void adiciona(Clientecontato clienteContato) throws Exception {
         try {
             em.getTransaction().begin();
             //em.persist(clienteContato.getIdCliente());
@@ -39,7 +39,7 @@ public class ClientecontatoDAO {
             
         } catch (Exception e) {
             System.err.println(e.getMessage());
-
+            throw new Exception(e.getMessage());
         }
     }
     
@@ -60,20 +60,20 @@ public class ClientecontatoDAO {
 
     }
     
-    public Clientecontato findById (Integer id) throws Exception{
+    public Clientecontato findById (Integer id) {
         Clientecontato clienteContato = null;
         try {
             Query query = em.createQuery("select c from Clientecontato c where c.id = :id", Clientecontato.class);
             query.setParameter("id", id);
             clienteContato =  (Clientecontato) query.getSingleResult();
+            return  clienteContato;
         } catch (Exception e) {
             System.err.println(e.getMessage());
-            throw new Exception(e.getMessage());
         }
-        return  clienteContato;
+        return  null;
     }
     
-    public void atualiza(Clientecontato clienteContato) {
+    public void atualiza(Clientecontato clienteContato) throws Exception {
         try {
              em.getTransaction().begin();
              em.merge(clienteContato);
@@ -81,7 +81,7 @@ public class ClientecontatoDAO {
              em.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
-
+            throw new Exception(e.getMessage());
         }
     }
     public List<Clientecontato> listaContatos(Integer id) {

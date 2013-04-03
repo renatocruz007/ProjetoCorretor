@@ -41,6 +41,7 @@ public class ClienteController {
             return dao.listaClientes();
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
+            result.include("erro", "Um erro ocorreu");
             return null;
         }
     }
@@ -58,15 +59,20 @@ public class ClienteController {
     }
 
     @Post("/cliente")
-    public void adiciona(Cliente cliente, Clientecontato clienteContato) {
-        // List<Clientecontato> listaClienteContatos = new ArrayList<Clientecontato>();
-        // listaClienteContatos.add(clienteContato);
-        // cliente.setClientecontatoList(listaClienteContatos);
-        dao.adiciona(cliente);
-        //  Long idCliente = dao.retornaId(cliente.getNome());
-        //  cliente.setId(cliente.getId());
-        clienteContato.setIdclienteId(cliente);
-        daoContato.adiciona(clienteContato);
+    public String adiciona(Cliente cliente, Clientecontato clienteContato) {
+        try {            
+            dao.adiciona(cliente);
+            if (clienteContato.getDesccontato() != null || clienteContato.getSiglatipo() != null
+                    || clienteContato.getSiglatipocontato() != null) {
+                clienteContato.setIdclienteId(cliente);
+                
+                daoContato.adiciona(clienteContato);
+            }
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return "Um erro ocorreu";
+        }
+        return "Cliente adicionado com sucesso!";
     }
 
     @Get("/cliente/novo")
@@ -85,11 +91,14 @@ public class ClienteController {
     }
 
     @Put("/cliente/{cliente.id}")
-    public void altera(Cliente cliente) {
+    public String altera(Cliente cliente) {
         try {
             dao.atualiza(cliente);
         } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+            return "Um erro ocorreu";
         }
+        return "Cliente alterado com sucesso!";
     }
 
     public List<Cliente> busca(String nome) {
@@ -98,8 +107,8 @@ public class ClienteController {
             return dao.busca(nome);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
+            result.include("erro", "Um erro ocorreu");
             return null;
         }
     }
-
 }

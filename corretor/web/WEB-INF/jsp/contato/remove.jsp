@@ -9,8 +9,8 @@
 <!DOCTYPE html>
 
 <c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
-<h1>Hello World!</h1>
-
-<h2>${string}</h2>
-
+<div class="principal">
+    <h1 class="principal">Remoção de Contato</h1>
+    <h3 class="mensagem">${string}</h3>
+</div>
 <c:import url="http://localhost:8080/corretor/rodape.jsp" />

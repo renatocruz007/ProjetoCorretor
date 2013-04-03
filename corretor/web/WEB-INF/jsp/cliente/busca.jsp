@@ -9,45 +9,51 @@
 <!DOCTYPE html>
 
 <c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
-<h3>Resultados da busca pelo nome <b>"${nome }"</b></h3>
-<c:if test="${empty clienteList}">
-    Não há clientes com esse nome na agenda!
+<div class="principal">
+    <h3 class="mensagem" >Resultados da busca pelo nome <b>"${nome}"</b></h3>
+<c:if test="${not empty erro}">
+    <h3 class="mensagem">${erro}</h3>
 </c:if>
-<c:if test="${not empty clienteList}">
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Nome conjugue</th>
-                <th>Origem</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${clienteList}" var="cliente" varStatus="id">
-                <tr bgcolor="#${id.count % 2 == 0 ? 'aaee88' : 'ffffff' }">
-                    <td>${cliente.nome }</td>
-                    <td>${cliente.nomeconjugue }</td>
-                    <td>${cliente.origem }</td>
-                    <td><a href="<c:url value="/cliente/${cliente.id}"/>">
-                            Editar
-                        </a></td>
-                    <td>
-                        <form action="<c:url value="/cliente/remove/${cliente.id}"/>"
-                              method="POST">
-                            <button class="link" name="_method" value="DELETE">
-                                Remover
-                            </button>
-                        </form>
-                    </td>
-                    <td><a href="<c:url value="/contato/lista/${cliente.id}"/>">
-                            Listar contatos
-                        </a></td>
-                    <td><a href="<c:url value="/contato/${cliente.id}"/>">
-                            Adicionar contato
-                        </a></td>
+<c:if test="${empty erro}">
+    <c:if test="${empty clienteList}">
+        <h3 class="mensagem">Não há clientes com esse nome <b>"${nome}"</b> na agenda!</h3>
+    </c:if>
+    <c:if test="${not empty clienteList}">
+        <table class="lista">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Nome conjugue</th>
+                    <th>Origem</th>
                 </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <c:forEach items="${clienteList}" var="cliente" varStatus="id">
+                    <tr bgcolor="#${id.count % 2 == 0 ? 'aaee88' : 'ccc' }">
+                        <td>${cliente.nome }</td>
+                        <td>${cliente.nomeconjugue }</td>
+                        <td>${cliente.origem }</td>
+                        <td><a href="<c:url value="/cliente/${cliente.id}"/>">
+                                Editar
+                            </a></td>
+                        <td>
+                            <form action="<c:url value="/cliente/remove/${cliente.id}"/>"
+                                  method="POST">
+                                <button class="link" name="_method" value="DELETE">
+                                    Remover
+                                </button>
+                            </form>
+                        </td>
+                        <td><a href="<c:url value="/contato/lista/${cliente.id}"/>">
+                                Listar contatos
+                            </a></td>
+                        <td><a href="<c:url value="/contato/${cliente.id}"/>">
+                                Adicionar contato
+                            </a></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
 </c:if>
 <c:import url="http://localhost:8080/corretor/rodape.jsp" />

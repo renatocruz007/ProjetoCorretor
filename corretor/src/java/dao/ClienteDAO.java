@@ -4,10 +4,7 @@
  */
 package dao;
 
-import br.com.caelum.vraptor.ioc.Component;
 import entities.Cliente;
-import entities.Clientecontato;
-import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -28,8 +25,9 @@ public class ClienteDAO {
         this.em = new JPAUtil().getEntityManager();
     }
 
-    public void adiciona(Cliente cliente) {
+    public void adiciona(Cliente cliente) throws Exception {
         try {
+            
             em.getTransaction().begin();
             em.persist(cliente);
             // long aux = em.createQuery("select c.id from cliente c ").getFirstResult();
@@ -38,12 +36,12 @@ public class ClienteDAO {
             em.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
-
+            throw new Exception(e.getMessage());
         }
 
     }
 
-    public void remove(Integer id) {
+    public void remove(Integer id) throws Exception {
         try {
             em.getTransaction().begin();
             Query query = em.createQuery("delete from Cliente c "
@@ -55,7 +53,7 @@ public class ClienteDAO {
             em.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
-
+            throw new Exception(e.getMessage());
         }
 
     }
@@ -67,26 +65,29 @@ public class ClienteDAO {
                     Cliente.class);
             query.setParameter("nome", nome);
             cliente = (Cliente) query.getSingleResult();
+            return cliente.getId();
         } catch (Exception e) {
             System.err.println(e.getMessage());
+            
         }
-        return cliente.getId();
+        return null;
     }
 
-    public Cliente findById(Integer id) throws Exception {
+    public Cliente findById(Integer id) {
         Cliente cliente = new Cliente();
         try {
             Query query = em.createQuery("select c from Cliente c where c.id = :id");
             query.setParameter("id", id);
             cliente = (Cliente) query.getSingleResult();
+            return cliente;
         } catch (Exception e) {
             System.err.println(e.getMessage());
-            throw new Exception(e.getMessage());
+            
         }
-        return cliente;
+        return null;
     }
 
-    public void atualiza(Cliente cliente) {
+    public void atualiza(Cliente cliente) throws Exception {
         try {
             em.getTransaction().begin();
             em.merge(cliente);
@@ -94,7 +95,7 @@ public class ClienteDAO {
             em.close();
         } catch (Exception e) {
             System.err.println(e.getMessage());
-
+            throw new Exception(e.getMessage());
         }
     }
 

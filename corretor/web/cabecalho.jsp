@@ -33,7 +33,7 @@
                         <input id="busca" name="nome"/>
                     </form>
                     <script type="text/javascript">
-                        $("#busca").puts("Busca produtos por nome");
+                        $("#busca").puts("Busca clientes por nome");
                     </script>
                 </li>
             </ul>

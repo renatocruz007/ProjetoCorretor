@@ -49,26 +49,18 @@
                 </tr>
                 <tr>
                     <td class="cadastro">
-                        <label for="descricao">Tipo:</label>
+                        <label for="telefone">Telefone:</label>
                     </td>
                     <td>
-                        <input id="descricao" type="text" name="clienteContato.siglatipo"/>
+                        <input id="preco" type="text" name="cliente.telefone"/>
                     </td>
                 </tr>
                 <tr>
                     <td class="cadastro">
-                        <label for="preco">Tipo Contato:</label>
+                        <label for="email">e-mail:</label>
                     </td>
                     <td>
-                        <input id="preco" type="text" name="clienteContato.siglatipocontato"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="cadastro">
-                        <label for="preco">Descrição Contato:</label>
-                    </td>
-                    <td>
-                        <input id="descricao" type="text" name="clienteContato.desccontato"></input>
+                        <input id="email" type="text" name="cliente.email"></input>
                     </td>
                 </tr>
                 <tr>
@@ -119,6 +111,14 @@
                     </td>
                     <td>
                         <input id="bairrocom" type="text" name="cliente.bairrocom"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cadastro">
+                        <label for="descricao">Descrição:</label>
+                    </td>
+                    <td>
+                        <textarea cols=30 rows="4" id="descricao" name="historico.descricao"></textarea>
                     </td>
                 </tr>
             </table>

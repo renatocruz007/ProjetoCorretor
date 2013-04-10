@@ -11,72 +11,77 @@ import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import dao.ClienteDAO;
-import dao.ClientecontatoDAO;
+import dao.HistoricoDAO;
 import entities.Cliente;
-import entities.Clientecontato;
-import java.util.ArrayList;
+import entities.Historico;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author rcruzsil
  */
 @Resource
-public class ContatoController {
+public class HistoricoController {
 
     private ClienteDAO dao;
-    private ClientecontatoDAO daoContato;
+    private HistoricoDAO daoHistorico;
     private final Result result;
 
-    public ContatoController(Result result) {
+    public HistoricoController(Result result) {
         this.dao = new ClienteDAO();
-        this.daoContato = new ClientecontatoDAO();
+        this.daoHistorico = new HistoricoDAO();
         this.result = result;
     }
 
-    @Post("/contato")
-    public String adiciona(Cliente cliente, Clientecontato clienteContato) {
+    @Post("/historico")
+    public String adiciona(Cliente cliente, Historico historico) {
         try {
-            clienteContato.setIdclienteId(cliente);
+            historico.setIdclienteId(cliente);
             
-            daoContato.adiciona(clienteContato);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(Calendar.getInstance().getTimeInMillis());
+            historico.setData(calendar);
+            
+            daoHistorico.adiciona(historico);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
             return "Um erro ocorreu";
         }
-        return "Contato adicionado com sucesso!";
+        return "Histórico adicionado com sucesso!";
     }
 
-    @Delete("/contato/{id}")
+    @Delete("/historico/{id}")
     public String remove(Integer id) throws Exception {
         String teste = "";
         try {
-            daoContato.remove(id);
+            daoHistorico.remove(id);
         } catch (Exception e) {
             teste = "Um erro ocorreu";
             return teste;
         }
-        teste = "Contato deletado com sucesso!";
+        teste = "Histórico deletado com sucesso!";
         return teste;
     }
 
-    @Get("/contato/{id}")
+    @Get("/historico/{id}")
     public Cliente formulario(Integer id) {
         Cliente cliente = null;
         try {
             cliente = dao.findById(id);
         } catch (Exception ex) {
-            //Logger.getLogger(ContatoController.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(HistoricoController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return cliente;
     }
 
-    @Get("/contato/lista/{id}")
-    public List<Clientecontato> lista(Integer id) {
+    @Get("/historico/lista/{id}")
+    public List<Historico> lista(Integer id) {
         try {
-            return daoContato.listaContatos(id);
+            return daoHistorico.listaHistoricos(id);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
             result.include("erro", "Um erro ocorreu");
@@ -84,25 +89,25 @@ public class ContatoController {
         }
     }
 
-    @Get("/contato/edita/{id}")
-    public Clientecontato edita(Integer id) {
-        Clientecontato contato = null;
+    @Get("/historico/edita/{id}")
+    public Historico edita(Integer id) {
+        Historico historico = null;
         try {
-            contato = daoContato.findById(id);
+            historico = daoHistorico.findById(id);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-        return contato;
+        return historico;
     }
 
-    @Put("/contato/{clienteContato.id}")
-    public String altera(Clientecontato clienteContato) {
+    @Put("/historico/{historico.id}")
+    public String altera(Historico historico) {
         try {
-            daoContato.atualiza(clienteContato);
+            daoHistorico.atualiza(historico);
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
             return "Um erro ocorreu";
         }
-        return "Contato editado com sucesso!";
+        return "Histórico editado com sucesso!";
     }
 }

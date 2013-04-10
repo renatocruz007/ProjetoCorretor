@@ -44,12 +44,12 @@
                                 </button>
                             </form>
                         </td>
-                        <td><a href="<c:url value="/contato/lista/${cliente.id}"/>">
-                                Listar contatos
-                            </a></td>
-                        <td><a href="<c:url value="/contato/${cliente.id}"/>">
-                                Adicionar contato
-                            </a></td>
+                        <td><a href="<c:url value="/historico/lista/${cliente.id}"/>">
+                                    Listar históricos
+                                </a></td>
+                            <td><a href="<c:url value="/historico/${cliente.id}"/>">
+                                    Adicionar histórico
+                                </a></td>
                     </tr>
                 </c:forEach>
             </tbody>

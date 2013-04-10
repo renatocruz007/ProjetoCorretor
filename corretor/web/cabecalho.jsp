@@ -11,9 +11,18 @@
     <head>
         <link rel="stylesheet" type="text/css" href="http://localhost:8080/corretor/css/estilos.css" />
         <script type="text/javascript" src="http://localhost:8080/corretor/js/jquery-1.9.1.min.js"></script>
-
+        <script type="text/javascript">
+            function formatarData (date) {
+            var currentDt = date;
+            var mm = currentDt.getMonth() + 1;
+            var dd = currentDt.getDate();
+            var yyyy = currentDt.getFullYear();
+            var date = mm + '/' + dd + '/' + yyyy;
+            alert(date);
+            }
+        </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Agenda de Clientes</title>
+            <title>Agenda de Clientes</title>
     </head>
     <body >
         <div id="menu">

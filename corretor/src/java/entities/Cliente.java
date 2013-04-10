@@ -7,15 +7,12 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -32,6 +29,13 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 
 public class Cliente implements Serializable {
+    @Size(max = 255)
+    @Column(name = "telefone")
+    private String telefone;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
+    @Size(max = 255)
+    @Column(name = "email")
+    private String email;
     private static final long serialVersionUID = 1L;
     @Size(max = 255)
     @Column(name = "bairrocom")
@@ -46,9 +50,9 @@ public class Cliente implements Serializable {
     @Column(name = "nomeconjugue")
     private String nomeconjugue;
     @Column(name = "numcom")
-    private Short numcom;
+    private String numcom;
     @Column(name = "numres")
-    private Short numres;
+    private String numres;
     @Size(max = 255)
     @Column(name = "origem")
     private String origem;
@@ -68,7 +72,7 @@ public class Cliente implements Serializable {
     @Column(name = "id")
     private Integer id;
     @OneToMany(mappedBy = "idclienteId", fetch = FetchType.LAZY)
-    private List<Clientecontato> clientecontatoList;
+    private List<Historico> historicoList;
 
     public Cliente() {
     }
@@ -109,19 +113,19 @@ public class Cliente implements Serializable {
         this.nomeconjugue = nomeconjugue;
     }
 
-    public Short getNumcom() {
+    public String getNumcom() {
         return numcom;
     }
 
-    public void setNumcom(Short numcom) {
+    public void setNumcom(String numcom) {
         this.numcom = numcom;
     }
 
-    public Short getNumres() {
+    public String getNumres() {
         return numres;
     }
 
-    public void setNumres(Short numres) {
+    public void setNumres(String numres) {
         this.numres = numres;
     }
 
@@ -166,12 +170,12 @@ public class Cliente implements Serializable {
     }
 
     @XmlTransient
-    public List<Clientecontato> getClientecontatoList() {
-        return clientecontatoList;
+    public List<Historico> getClientecontatoList() {
+        return historicoList;
     }
 
-    public void setClientecontatoList(List<Clientecontato> clientecontatoList) {
-        this.clientecontatoList = clientecontatoList;
+    public void setClientecontatoList(List<Historico> clientecontatoList) {
+        this.historicoList = clientecontatoList;
     }
 
     @Override
@@ -197,6 +201,22 @@ public class Cliente implements Serializable {
     @Override
     public String toString() {
         return "entities.Cliente[ id=" + id + " ]";
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
     
 }

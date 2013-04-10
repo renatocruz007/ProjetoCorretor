@@ -26,6 +26,10 @@ table.lista {
     padding-bottom: 30px;
 }
 
+th {
+    background-color: #f00;
+}
+
 td.cadastro {
     background-color: darkslategrey; 
 }
@@ -43,7 +47,6 @@ h3.mensagem {
 h4.home {
     padding-left: 5px;
 }
-
 
     /*divs*/
     

@@ -10,7 +10,7 @@
 
 <c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
 <div class="principal">
-    <h1 class="principal">Edição de Contato</h1>
+    <h1 class="principal">Edição de Histórico</h1>
     <h3 class="mensagem">${string}</h3>
 </div>
 <c:import url="http://localhost:8080/corretor/rodape.jsp" />

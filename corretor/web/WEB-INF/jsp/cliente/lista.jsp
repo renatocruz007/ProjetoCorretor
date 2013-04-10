@@ -25,6 +25,7 @@
                         <th>Nome</th>
                         <th>Nome conjugue</th>
                         <th>Origem</th>
+                        <th>Telefone</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,6 +34,7 @@
                             <td>${cliente.nome }</td>
                             <td>${cliente.nomeconjugue }</td>
                             <td>${cliente.origem }</td>
+                            <td>${cliente.telefone }</td>
                             <td><a href="<c:url value="/cliente/${cliente.id}"/>">
                                     Editar
                                 </a></td>
@@ -44,11 +46,11 @@
                                     </button>
                                 </form>
                             </td>
-                            <td><a href="<c:url value="/contato/lista/${cliente.id}"/>">
-                                    Listar contatos
+                            <td><a href="<c:url value="/historico/lista/${cliente.id}"/>">
+                                    Listar históricos
                                 </a></td>
-                            <td><a href="<c:url value="/contato/${cliente.id}"/>">
-                                    Adicionar contato
+                            <td><a href="<c:url value="/historico/${cliente.id}"/>">
+                                    Adicionar histórico
                                 </a></td>
                         </tr>
                     </c:forEach>

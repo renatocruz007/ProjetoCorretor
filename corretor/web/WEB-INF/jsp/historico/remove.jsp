@@ -1,6 +1,6 @@
 <%-- 
-    Document   : adiciona
-    Created on : 23/03/2013, 17:59:43
+    Document   : remove
+    Created on : 25/03/2013, 15:15:06
     Author     : rcruzsil
 --%>
 
@@ -10,7 +10,7 @@
 
 <c:import url="http://localhost:8080/corretor/cabecalho.jsp" />
 <div class="principal">
-    <h1 class="principal">Adição de contato</h1>
+    <h1 class="principal">Remoção de Histórico</h1>
     <h3 class="mensagem">${string}</h3>
 </div>
 <c:import url="http://localhost:8080/corretor/rodape.jsp" />

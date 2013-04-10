@@ -11,12 +11,16 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import dao.ClientecontatoDAO;
+import dao.HistoricoDAO;
 import dao.ClienteDAO;
 import entities.Cliente;
-import entities.Clientecontato;
+import entities.Historico;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  *
@@ -26,12 +30,12 @@ import java.util.List;
 public class ClienteController {
 
     private ClienteDAO dao;
-    private ClientecontatoDAO daoContato;
+    private HistoricoDAO daoHistorico;
     private final Result result;
 
     public ClienteController(Result result) {
         this.dao = new ClienteDAO();
-        this.daoContato = new ClientecontatoDAO();
+        this.daoHistorico = new HistoricoDAO();
         this.result = result;
     }
 
@@ -59,14 +63,17 @@ public class ClienteController {
     }
 
     @Post("/cliente")
-    public String adiciona(Cliente cliente, Clientecontato clienteContato) {
-        try {            
+    public String adiciona(Cliente cliente, Historico historico) {
+        try {
             dao.adiciona(cliente);
-            if (clienteContato.getDesccontato() != null || clienteContato.getSiglatipo() != null
-                    || clienteContato.getSiglatipocontato() != null) {
-                clienteContato.setIdclienteId(cliente);
-                
-                daoContato.adiciona(clienteContato);
+            if (historico.getDescricao() != null) {
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(Calendar.getInstance().getTimeInMillis());
+               
+                historico.setIdclienteId(cliente);
+                historico.setData(calendar);
+                daoHistorico.adiciona(historico);
             }
         } catch (Exception ex) {
             System.err.println(ex.getMessage());

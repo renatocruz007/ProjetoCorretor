@@ -56,6 +56,24 @@
                         </td>
                     </tr>
                     <tr>
+                    <td class="cadastro">
+                        <label for="telefone">Telefone:</label>
+                    </td>
+                    <td>
+                        <input id="preco" type="text" name="cliente.telefone"
+                               value="${cliente.telefone}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cadastro">
+                        <label for="email">e-mail:</label>
+                    </td>
+                    <td>
+                        <input id="email" type="text" name="cliente.email"
+                               value="${cliente.email}"/>
+                    </td>
+                </tr>
+                    <tr>
                         <td class="cadastro">
                             <label for="enderecoResidencial">Endereço Residencial</label>
                         </td>
